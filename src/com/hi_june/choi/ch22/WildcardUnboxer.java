@@ -3,11 +3,11 @@ package com.hi_june.choi.ch22;
 class Box<T> {
     private T object;
 
-    public void setObject(T object) {
+    public void set(T object) {
         this.object = object;
     }
 
-    public T getObject() {
+    public T get() {
         return object;
     }
 
@@ -19,10 +19,10 @@ class Box<T> {
 
 class Unboxer {
     public static <T> T openBox(Box<T> box) {
-        return box.getObject();
+        return box.get();
     }
 
-    public static <T> void peekBox(Box<T> box) {
+    public static void peekBox(Box<?> box) {
         System.out.println(box);
     }
 }
@@ -30,7 +30,7 @@ class Unboxer {
 public class WildcardUnboxer {
     public static void main(String[] args) {
         Box<String> box = new Box<>();
-        box.setObject("So Simple String");
+        box.set("So Simple String");
         Unboxer.peekBox(box);
     }
 }
